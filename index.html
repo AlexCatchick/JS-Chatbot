@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Restaurant</title>
+    <style>
+        /* Main dark background */
+        html.dark body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        /* Chat messages */
+        html.dark .bg-blue-100 {
+            background-color: #1E1E1E !important;
+        }
+
+        html.dark .bg-green-100 {
+            background-color: #2a2a2a !important;
+        }
+
+        /* Input field */
+        html.dark input {
+            background-color: #1E1E1E;
+            color: #f0f0f0;
+            border: 1px solid #333;
+        }
+
+        /* Buttons */
+        html.dark button {
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+        }
+
+        html.dark button:hover {
+            background-color: #3a3a3a;
+        }
+
+        /* Optional: scrollbar styling */
+        html.dark ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        html.dark ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.4s ease-out',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-800 flex items-center justify-center min-h-screen transition-colors duration-300">
+    <div class="w-full max-w-2xl p-2 md:p-0 relative">
+        <!-- Dark mode toggle -->
+        <button id="modeToggle"
+            class="absolute -top-12 right-0 bg-gray-300 dark:bg-gray-700 text-black dark:text-white px-3 py-1 rounded-lg text-sm transition">
+            Toggle Dark Mode
+        </button>
+
+        <div
+            class="bg-white dark:bg-gray-900 w-full rounded-2xl shadow-lg flex flex-col p-4 relative transition-colors duration-300 h-[80vh] md:h-[70vh]">
+            <div id="chatbox" class="space-y-2 overflow-y-auto mb-3 h-full"></div>
+            <div class="flex space-x-2">
+                <input id="userInput" type="text" placeholder="Type your message..."
+                    class="flex-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+                <button id="sendBtn" class="p-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 4.5l16.5 7.5-16.5 7.5 3-7.5-3-7.5z" />
+                    </svg>
+                </button>
+
+            </div>
+            <div id="loading"
+                class="hidden absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-2xl">
+                <div class="text-white text-xl animate-pulse">Processing Payment...</div>
+            </div>
+        </div>
+    </div>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>
