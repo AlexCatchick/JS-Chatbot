@@ -1,6 +1,6 @@
 # Food Ordering Chatbot
 
-A responsive web chatbot for ordering food with dark/light mode toggle and modern UI animations. [Try out here!](https://alexcatchick.github.io/JS-Chatbot)
+A responsive web chatbot for ordering food with dark/light mode toggle and modern UI animations. [Try it here!](https://alexcatchick.github.io/JS-Chatbot)
 
 ## Features
 
